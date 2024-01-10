@@ -2,12 +2,14 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
+//aqui incluye los comandos para el autónomo al igual que todo lo demás que usará como el swerve, el PID controller y por ultimo incluye ángulo(i)
 #include "commands/AutonomousCommands.h"
 
 #include <frc/controller/ProfiledPIDController.h>
 #include <frc2/command/SwerveControllerCommand.h>
 #include <units/angle.h>
 
+//valores default (i)
 void TimedAutoBase::Initialize() noexcept
 {
     m_drive->Drive(0_mps, 0_mps, 0_deg_per_s, false);
@@ -39,6 +41,8 @@ void TimedAutoBase::End(bool interrupted) noexcept
     m_infrastructure->SetLEDPattern(95);
 }
 
+
+//funciones principales del autónomo, neumática, intake, disparo y elevador (i)
 void TimedAutoBase::Execute() noexcept
 {
     const uint64_t FPGATime = frc::RobotController::GetFPGATime();
